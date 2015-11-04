@@ -1,0 +1,81 @@
+
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+<script type="text/javascript">
+function SelectImage3(){
+    var i = 0;
+    for (i = 0; i < 2; i++){
+        // do your random thing
+        roll = Math.floor(Math.random() * 6) + 1;
+   		imgName = '../images/die' + roll + '.gif';
+    	document.getElementById('dieImg1').src = imgName;
+        // do your image thing
+        	document.getElementById('outputDiv').innerHTML = 
+		document.getElementById('dieImg1').innerHTML + 
+		" <img id = i.src = '../images/die1.gif'/>";
+        // get and update your DOM ID reference using a variable based on i
+   }
+}
+
+
+</script>
+<div style="text-align:center">
+			<p id="outputDiv">
+    <img id="dieImg1" alt="die image" src="../images/die1.gif" />
+</p>
+			<input type="button" value="Roll until doubles" onclick="SelectImage3();">
+
+		</div>
+
+
+
+<script type="text/javascript">
+function SelectImage2() {
+    var i, roll, imgName, tags;
+
+    //the first dice
+    roll = Math.floor(Math.random() * 6) + 1;
+    imgName = '../images/die' + roll + '.gif';
+    document.getElementById('dieImg1').src = imgName;
+
+    //build and roll the second and third dices, if not yet exist.
+    if ( !document.getElementById('dieImg2') ) {
+
+        //second and third dices are not yet exist. build and roll them.
+
+        //start from number 2.
+        //keep looping while it's less than 4. i.e.: 2 and 3.
+        //increment the number by 1 at the end of the for loop.
+        for ( i = 1; i <= 2; i++ ) {
+
+            tags += ' <img id="dieImg' + i + '" alt="die image" src="../images/die2.gif" />';
+
+        }
+
+        //append the tags at the end of dice container contents
+        document.getElementById('outputDiv2').innerHTML += tags;
+
+    }
+
+    //roll the second and third dices
+    for ( i = 1; i <= 2; i++ ) {
+
+        roll = Math.floor(Math.random() * 6) + 1;
+        imgName = '../images/die' + roll + '.gif';
+        document.getElementById('dieImg' + i).src = imgName;
+
+    }
+}
+</script>
+<div style="text-align:center">
+			<p id="outputDiv2">
+    <img id="dieImg1" alt="die image" src="../images/die1.gif" />
+</p>
+			<input type="button" value="Roll until doubles" onclick="SelectImage2();">
+
+		</div>
+</body>
+</html>
